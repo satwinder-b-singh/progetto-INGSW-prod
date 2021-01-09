@@ -19,18 +19,19 @@ public class User implements Serializable {
 	private static final long serialVersionUID = -8850740904859933967L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int userid;
+	private int id;
 	private String email;
 	private String username;
 	private String password;
 	private String usertype;
+	private String ciao;
 
 	public int getUserid() {
-		return userid;
+		return id;
 	}
 
 	public void setUserid(int userid) {
-		this.userid = userid;
+		this.id = userid;
 	}
 
 	public String getUsertype() {
@@ -43,7 +44,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", email=" + email + ", username=" + username + ", password=" + password
+		return "User [userid=" + id + ", email=" + email + ", username=" + username + ", password=" + password
 				+ ", age=" + age + ", address=" + address + "]";
 	}
 
@@ -53,7 +54,7 @@ public class User implements Serializable {
 
 	public User(int userid, String email, String username, String password, int age, Address address) {
 		super();
-		this.userid = userid;
+		this.id = userid;
 		this.email = email;
 		this.username = username;
 		this.password = password;
