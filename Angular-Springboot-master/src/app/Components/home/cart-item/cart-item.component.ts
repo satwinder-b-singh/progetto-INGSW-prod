@@ -50,6 +50,7 @@ export class CartItemComponent implements OnInit {
     this.api.place(this.auth).subscribe(res => {
       console.log(res);
     });
+	
     this.route.navigate(['/home']);
   }
 
