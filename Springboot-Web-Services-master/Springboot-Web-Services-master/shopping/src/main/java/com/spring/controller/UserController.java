@@ -80,7 +80,12 @@ public class UserController {
 			} else {
 				resp.setStatus(ResponseCode.SUCCESS_CODE);
 				resp.setMessage(ResponseCode.CUST_REG);
+				System.out.println(user.toString());
+				System.out.println("dalla chiamata mi arriva questo"+user.getUsertype());
 				User reg = userRepo.save(user);
+				System.out.println(user.toString());
+				System.out.println("io creo  questo"+user.getUsertype());
+				
 				resp.setObject(reg);
 			}
 		} catch (Exception e) {
