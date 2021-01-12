@@ -27,7 +27,9 @@ public class jwtUtil {
 	private UserRepository userRepo;
 
 	public String createToken(String session_email, String session_pass, String session_type) {
+		
 		Map<String, Object> map = new HashMap<>();
+		
 		map.put(SES_EMAIL, session_email);
 		map.put(SES_PASS, session_pass);
 		map.put(SES_TYPE, session_type);
