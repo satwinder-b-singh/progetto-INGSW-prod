@@ -88,17 +88,22 @@ public class AdminController {
 			@RequestParam(name = WebConstants.PROD_NAME) String productname,
 			@RequestParam(name = WebConstants.PROD_QUANITY) String quantity) throws IOException {
 		prodResp resp = new prodResp();
+		System.out.println("ciaooo");
 		if (Validator.isStringEmpty(productname) || Validator.isStringEmpty(description)
 				|| Validator.isStringEmpty(price) || Validator.isStringEmpty(quantity)) {
 			resp.setStatus(ResponseCode.BAD_REQUEST_CODE);
-			resp.setMessage(ResponseCode.BAD_REQUEST_MESSAGE);
+			resp.setMessage(ResponseCode.BAD_REQUEST_MESSAGE);		
+
 		} else if (!Validator.isStringEmpty(AUTH_TOKEN) && jwtutil.checkToken(AUTH_TOKEN) != null) {
 			try {
+				System.out.println("cadasdado");
+
 				Product prod = new Product();
 				prod.setDescription(description);
 				prod.setPrice(Double.parseDouble(price));
 				prod.setProductname(productname);
 				prod.setQuantity(Integer.parseInt(quantity));
+				
 				prod.setProductimage(prodImage.getBytes());
 				prodRepo.save(prod);
 
@@ -112,6 +117,7 @@ public class AdminController {
 				resp.setAUTH_TOKEN(AUTH_TOKEN);
 			}
 		} else {
+			System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 			resp.setStatus(ResponseCode.BAD_REQUEST_CODE);
 			resp.setMessage(ResponseCode.BAD_REQUEST_MESSAGE);
 		}

@@ -69,7 +69,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<serverResp> addUser(@Valid @RequestBody User user) {
 
-		serverResp resp = new serverResp();
+		serverResp resp = new serverResp(); 
 		try {
 			if (Validator.isUserEmpty(user)) {
 				resp.setStatus(ResponseCode.BAD_REQUEST_CODE);
