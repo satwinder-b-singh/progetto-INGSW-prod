@@ -66,7 +66,7 @@ public class UserController {
 	@Autowired
 	private jwtUtil jwtutil;
 
-	@PostMapping("/signup")
+	@PostMapping("/signup") //FUNZIONA
 	public ResponseEntity<serverResp> addUser(@Valid @RequestBody User user) {
 
 		serverResp resp = new serverResp(); 
@@ -80,7 +80,12 @@ public class UserController {
 			} else {
 				resp.setStatus(ResponseCode.SUCCESS_CODE);
 				resp.setMessage(ResponseCode.CUST_REG);
+				System.out.println(user.toString());
+				System.out.println("dalla chiamata mi arriva questo"+user.getUsertype());
 				User reg = userRepo.save(user);
+				System.out.println(user.toString());
+				System.out.println("io creo  questo"+user.getUsertype());
+				
 				resp.setObject(reg);
 			}
 		} catch (Exception e) {
@@ -117,7 +122,7 @@ public class UserController {
 		return new ResponseEntity<serverResp>(resp, HttpStatus.OK);
 	}
 
-	@PostMapping("/addAddress")
+	@PostMapping("/addAddress")//FUNZIONA
 	public ResponseEntity<userResp> addAddress(@Valid @RequestBody Address address,
 			@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN) {
 		userResp resp = new userResp();
@@ -147,7 +152,7 @@ public class UserController {
 		return new ResponseEntity<userResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@PostMapping("/getAddress")
+	@PostMapping("/getAddress")//FUNZIONA
 	public ResponseEntity<response> getAddress(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN) {
 
 		response resp = new response();
@@ -181,7 +186,7 @@ public class UserController {
 		return new ResponseEntity<response>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@PostMapping("/getProducts")
+	@PostMapping("/getProducts")//Funziona , ma non carica l'img
 	public ResponseEntity<prodResp> getProducts(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN)
 			throws IOException {
 
@@ -204,7 +209,7 @@ public class UserController {
 		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@PostMapping("/addToCart")
+	@PostMapping("/addToCart")//FUNZIONA
 	public ResponseEntity<serverResp> addToCart(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestBody Product productId) throws IOException {
 System.out.println(productId+" ehy");
@@ -240,7 +245,7 @@ System.out.println("a");
 		return new ResponseEntity<serverResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/viewCart")
+	@GetMapping("/viewCart")//FUNZIONA
 	public ResponseEntity<cartResp> viewCart(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN)
 			throws IOException {
 		logger.info("Inside View cart request method");
@@ -265,7 +270,7 @@ System.out.println("a");
 		return new ResponseEntity<cartResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/updateCart")
+	@GetMapping("/updateCart")//FUNZIONA
 	public ResponseEntity<cartResp> updateCart(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestParam String bufcartid,
 			@RequestParam String quantity) throws IOException {
@@ -294,7 +299,7 @@ System.out.println("a");
 		return new ResponseEntity<cartResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/delCart")
+	@GetMapping("/delCart")//FUNZIONA
 	public ResponseEntity<cartResp> delCart(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestParam String bufcartid) throws IOException {
 
@@ -320,7 +325,7 @@ System.out.println("a");
 		return new ResponseEntity<cartResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/placeOrder")
+	@GetMapping("/placeOrder")//DA VERIFICARE
 	public ResponseEntity<serverResp> placeOrder(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN)
 			throws IOException {
 

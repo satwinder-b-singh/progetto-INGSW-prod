@@ -56,7 +56,7 @@ public class AdminController {
 	@Autowired
 	private jwtUtil jwtutil;
 
-	@PostMapping("/verify")
+	@PostMapping("/verify")//FUNZIONA
 	public ResponseEntity<serverResp> verifyUser(@Valid @RequestBody HashMap<String, String> credential) {
 		String email = "";
 		String password = "";
@@ -80,7 +80,7 @@ public class AdminController {
 		return new ResponseEntity<serverResp>(resp, HttpStatus.OK);
 	}
 
-	@PostMapping("/addProduct")
+	@PostMapping("/addProduct")//FUNZIONA
 	public ResponseEntity<prodResp> addProduct(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestParam(name = WebConstants.PROD_FILE) MultipartFile prodImage,
 			@RequestParam(name = WebConstants.PROD_DESC) String description,
@@ -124,7 +124,7 @@ public class AdminController {
 		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@PostMapping("/getProducts")
+	@PostMapping("/getProducts")//FUNZIONA
 	public ResponseEntity<prodResp> getProducts(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN)
 			throws IOException {
 		prodResp resp = new prodResp();
@@ -144,9 +144,9 @@ public class AdminController {
 			resp.setMessage(ResponseCode.FAILURE_MESSAGE);
 		}
 		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
-	}
+	} 
 
-	@PostMapping("/updateProducts")
+	@PostMapping("/updateProducts")//FUNZIONA
 	public ResponseEntity<serverResp> updateProducts(
 			@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestParam(name = WebConstants.PROD_FILE, required = false) MultipartFile prodImage,
@@ -155,6 +155,7 @@ public class AdminController {
 			@RequestParam(name = WebConstants.PROD_NAME) String productname,
 			@RequestParam(name = WebConstants.PROD_QUANITY) String quantity,
 			@RequestParam(name = WebConstants.PROD_ID) String productid) throws IOException {
+		 
 		serverResp resp = new serverResp();
 		if (Validator.isStringEmpty(productname) || Validator.isStringEmpty(description)
 				|| Validator.isStringEmpty(price) || Validator.isStringEmpty(quantity)) {
@@ -188,7 +189,7 @@ public class AdminController {
 		return new ResponseEntity<serverResp>(resp, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping("/delProduct")
+	@GetMapping("/delProduct")//Funziona
 	public ResponseEntity<prodResp> delProduct(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
 			@RequestParam(name = WebConstants.PROD_ID) String productid) throws IOException {
 		prodResp resp = new prodResp();
