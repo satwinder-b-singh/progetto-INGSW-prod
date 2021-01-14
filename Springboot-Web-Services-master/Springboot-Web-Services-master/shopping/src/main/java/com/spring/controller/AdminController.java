@@ -117,7 +117,7 @@ public class AdminController {
 				resp.setAUTH_TOKEN(AUTH_TOKEN);
 			}
 		} else {
-			System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		 
 			resp.setStatus(ResponseCode.BAD_REQUEST_CODE);
 			resp.setMessage(ResponseCode.BAD_REQUEST_MESSAGE);
 		}

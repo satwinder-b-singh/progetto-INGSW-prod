@@ -81,11 +81,9 @@ public class UserController {
 				resp.setStatus(ResponseCode.SUCCESS_CODE);
 				resp.setMessage(ResponseCode.CUST_REG);
 				System.out.println(user.toString());
-				System.out.println("dalla chiamata mi arriva questo"+user.getUsertype());
-				User reg = userRepo.save(user);
+ 				User reg = userRepo.save(user);
 				System.out.println(user.toString());
-				System.out.println("io creo  questo"+user.getUsertype());
-				
+ 				
 				resp.setObject(reg);
 			}
 		} catch (Exception e) {
@@ -208,6 +206,25 @@ public class UserController {
 		}
 		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
 	}
+	@PostMapping("/getProductsVisitor")//Funziona , ma non carica l'img
+	public ResponseEntity<prodResp> getProductsForVisitor( )
+			throws IOException {
+
+		prodResp resp = new prodResp();
+		 
+			try {
+				resp.setStatus(ResponseCode.SUCCESS_CODE);
+				resp.setMessage(ResponseCode.LIST_SUCCESS_MESSAGE);
+				 
+				resp.setOblist(prodRepo.findAll());
+			} catch (Exception e) {
+				resp.setStatus(ResponseCode.FAILURE_CODE);
+				resp.setMessage(e.getMessage());
+				 
+			}
+		    
+		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
+	}
 
 	@PostMapping("/addToCart")//FUNZIONA
 	public ResponseEntity<serverResp> addToCart(@RequestHeader(name = WebConstants.USER_AUTH_TOKEN) String AUTH_TOKEN,
@@ -258,6 +275,7 @@ System.out.println("a");
 				resp.setMessage(ResponseCode.VW_CART_MESSAGE);
 				resp.setAUTH_TOKEN(AUTH_TOKEN);
 				resp.setOblist(cartRepo.findByEmail(loggedUser.getEmail()));
+				System.out.println ("Inside View cart request method 3");
 			} catch (Exception e) {
 				resp.setStatus(ResponseCode.FAILURE_CODE);
 				resp.setMessage(e.getMessage());
