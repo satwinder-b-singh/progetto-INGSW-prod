@@ -4,7 +4,8 @@ public class serverResp {
 	private String status;
 	private String message;
 	private String AUTH_TOKEN;
-
+	private Object object;
+	
 	public String getAUTH_TOKEN() {
 		return AUTH_TOKEN;
 	}
@@ -13,7 +14,7 @@ public class serverResp {
 		this.AUTH_TOKEN = aUTH_TOKEN;
 	}
 
-	private Object object;
+	
 
 	public String getStatus() {
 		return status;
