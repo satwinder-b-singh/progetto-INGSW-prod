@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
           this.apiService.adminLogin(this.loginForm.value).
             subscribe(res => {
               if (res.status == "200") {
+                console.log("passo da admin");
                 this.apiService.storeToken(res.auth_TOKEN, "admin");
                 this.router.navigate(['/admin']);
               } else {

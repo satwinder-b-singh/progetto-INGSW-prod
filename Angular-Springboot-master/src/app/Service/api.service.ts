@@ -13,6 +13,8 @@ export class ApiService {
   private REG_API = "http://localhost:8087/user/signup";
   private LOGU_API = "http://localhost:8087/user/verify";
   private LOGA_API = "http://localhost:8087/admin/verify";
+  private VISITOR_PRDLST_API = "http://localhost:8087/visitor/getProductsVisitor";
+
   private PRDLST_API = "http://localhost:8087/user/getProducts";
   private ADD_CART_API = "http://localhost:8087/user/addToCart";
   private VW_CART_API = "http://localhost:8087/user/viewCart";
@@ -63,6 +65,13 @@ export class ApiService {
 
     const myheader = new HttpHeaders().set('AUTH_TOKEN', auth);
     return this.http.post<any>(this.PRDLST_API, null, { headers: myheader });
+
+  }
+  // Fetching all the products from the database
+  getProductsVisitor( ) : Observable<any>{
+
+
+    return this.http.post<any>(this.VISITOR_PRDLST_API, null);
 
   }
 
@@ -126,7 +135,8 @@ export class ApiService {
     formData.append("productname", prodname);
     formData.append("quantity", quan);
     formData.append("file", image);
-	auth=".AUTH TOKEN.";
+	  //auth=".AUTH TOKEN.";
+
     const myheader = new HttpHeaders().set('AUTH_TOKEN', auth);
     return this.http.post<any>(this.ADD_PRD_API, formData, { headers: myheader });
 
@@ -135,7 +145,7 @@ export class ApiService {
   // delete Product for Logged Admin User
   delProduct(auth: string, prodid: number) {
     const myheader = new HttpHeaders().set('AUTH_TOKEN', auth);
-    return this.http.get<any>(this.DEL_PRD_API + "?productid=" + prodid, { headers: myheader })
+    return this.http.get<any>(this.DEL_PRD_API + "?productId=" + prodid, { headers: myheader })
   }
 
   // delete Product for Logged Admin User
@@ -168,14 +178,14 @@ export class ApiService {
     formData.append("productname", prodname);
     formData.append("quantity", quan);
     formData.append("file", image);
-    formData.append("productid", productid);
+    formData.append("productId", productid);
 
     const myheader = new HttpHeaders().set('AUTH_TOKEN', auth);
     return this.http.post<any>(this.UPD_PRD_API, formData, { headers: myheader });
 
   }
 
-  // Authentication Methods 
+  // Authentication Methods
 
   public isAuthenticated(): boolean {
     return this.getToken() !== null;

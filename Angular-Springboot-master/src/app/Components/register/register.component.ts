@@ -31,6 +31,8 @@ export class RegisterComponent implements OnInit {
     this.apiService.register(this.registerForm.value).
       subscribe(res => {
         if (res.status == "400") {
+
+
           console.log("Details cannot be empty");
         } else {
           this.router.navigate(['/login']);

@@ -15,14 +15,14 @@ export class HomeComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    if (this.api.isAuthenticated) {
-      this.auth_token = this.api.getToken();
-      this.api.getProducts(this.auth_token).subscribe(
-        res => {
-          this.products = res.oblist;
-        }
-      );
-    }
+
+      this.api.getProductsVisitor().subscribe(
+      res => {
+
+        this.products = res.oblist;console.log(this.products);
+      }
+    );//}
+
   }
 
   addToCart(e) {

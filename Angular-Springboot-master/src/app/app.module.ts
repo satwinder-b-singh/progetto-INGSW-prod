@@ -21,7 +21,7 @@ import { EditItemComponent } from './Components/admin/edit-item/edit-item.compon
 import { OrderItemComponent } from './Components/admin/order-item/order-item.component';
 const appRoutes:Routes=[
   { path: '',
-    redirectTo: '/login',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
 {

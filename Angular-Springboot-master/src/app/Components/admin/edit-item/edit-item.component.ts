@@ -56,6 +56,8 @@ export class EditItemComponent implements OnInit {
   }
 
   updateProd(desc, quan, price, prodname, image) {
+
+    console.log( this.product.productid);
     this.api.updateProduct(this.auth, desc.value, quan.value, price.value, prodname.value, this.fileToUpload, this.product.productid).subscribe(res => {
       console.log(res);
     });
