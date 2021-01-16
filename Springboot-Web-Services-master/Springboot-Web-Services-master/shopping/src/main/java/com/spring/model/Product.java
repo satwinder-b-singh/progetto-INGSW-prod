@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import com.spring.constants.Categoria;
-
 @Entity
 @Table(name = "Product")
 public class Product implements Serializable {
@@ -23,8 +21,6 @@ public class Product implements Serializable {
 	private String productname;
 	private double price;
 	private int quantity;
-	private String categoria;
-	private String size;
 	@Lob
 	private byte[] productimage;
 
@@ -81,7 +77,7 @@ public class Product implements Serializable {
 	}
 
 	public Product(int productid, String description, String productname, double price, int quantity,
-			byte[] productimage,String categoria,String size) {
+			byte[] productimage) {
 		super();
 		this.productid = productid;
 		this.description = description;
@@ -89,15 +85,5 @@ public class Product implements Serializable {
 		this.price = price;
 		this.quantity = quantity;
 		this.productimage = productimage;
-		this.categoria = categoria;
-		this.size = size;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 }
