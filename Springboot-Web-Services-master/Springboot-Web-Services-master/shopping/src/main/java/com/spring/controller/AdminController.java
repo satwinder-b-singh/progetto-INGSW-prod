@@ -154,7 +154,9 @@ public class AdminController {
 			@RequestParam(name = WebConstants.PROD_PRICE) String price,
 			@RequestParam(name = WebConstants.PROD_NAME) String productname,
 			@RequestParam(name = WebConstants.PROD_QUANITY) String quantity,
-			@RequestParam(name = WebConstants.PROD_ID) String productid) throws IOException {
+			@RequestParam(name = WebConstants.PROD_ID) String productid,
+			@RequestParam(name = WebConstants.PROD_CATEGORY) String categoria,
+			@RequestParam(name = WebConstants.PROD_SIZE) String size) throws IOException {
 		 
 		serverResp resp = new serverResp();
 		if (Validator.isStringEmpty(productname) || Validator.isStringEmpty(description)

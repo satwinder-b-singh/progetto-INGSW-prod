@@ -42,6 +42,8 @@ export class EditItemComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
+      console.log("siamo qi");
+      console.log(params["user"]);
       this.prodid = params["user"];
     });
   }
