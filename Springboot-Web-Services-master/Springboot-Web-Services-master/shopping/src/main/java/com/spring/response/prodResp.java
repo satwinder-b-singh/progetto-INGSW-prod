@@ -9,6 +9,14 @@ public class prodResp {
 	private String message;
 	private String AUTH_TOKEN;
 	private List<Product> oblist;
+	private Product product;
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	public String getStatus() {
 		return status;
@@ -38,8 +46,8 @@ public class prodResp {
 		return oblist;
 	}
 
-	public void setOblist(List<Product> oblist) {
-		this.oblist = oblist;
+	public void setOblist(List<Product> product) {
+		this.oblist = product;
 	}
 
 }

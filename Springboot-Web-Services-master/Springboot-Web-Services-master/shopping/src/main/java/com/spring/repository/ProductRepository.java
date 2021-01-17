@@ -8,9 +8,9 @@ import com.spring.model.Product;
 
 @Repository
 @Transactional
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-	Product findByProductid(int productid);
+	Product findByProductid(Integer productid);
 
 	void deleteByProductid(int productid);
 }

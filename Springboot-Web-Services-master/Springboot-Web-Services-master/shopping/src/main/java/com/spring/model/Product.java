@@ -81,7 +81,7 @@ public class Product implements Serializable {
 	}
 
 	public Product(int productid, String description, String productname, double price, int quantity,
-			byte[] productimage,String categoria,String size) {
+			byte[] productimage ) {
 		super();
 		this.productid = productid;
 		this.description = description;
@@ -89,8 +89,7 @@ public class Product implements Serializable {
 		this.price = price;
 		this.quantity = quantity;
 		this.productimage = productimage;
-		this.categoria = categoria;
-		this.size = size;
+		 
 	}
 
 	public String getCategoria() {

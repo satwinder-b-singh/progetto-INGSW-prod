@@ -56,7 +56,7 @@ public class VisitorController {
 	@Autowired
 	private ProductRepository prodRepo;
 
-	@PostMapping("/getProductsVisitor") // Funziona , ma non carica l'img
+	@RequestMapping("/getProductsVisitor") // Funziona , ma non carica l'img
 	public ResponseEntity<prodResp> getProductsForVisitor() throws IOException {
 
 		prodResp resp = new prodResp();
@@ -74,5 +74,24 @@ public class VisitorController {
 
 		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
 	}
-
+	@PostMapping("/getProductsById")
+	public ResponseEntity<prodResp> getProductsById( @RequestBody    String id)//@Valid @RequestBody int id
+	{
+		System.out.println("Stampo l'id"+id);
+		prodResp resp = new prodResp();
+		Integer i = Integer.parseInt(id);
+		try {resp.setStatus(ResponseCode.SUCCESS_CODE);
+		resp.setMessage(ResponseCode.LIST_SUCCESS_MESSAGE);
+	
+		resp.setProduct(prodRepo.findByProductid(i));
+	    System.out.println(resp.getProduct());		
+		}
+		catch(Exception e)
+		{ 
+			resp.setStatus(ResponseCode.FAILURE_CODE);
+			resp.setMessage(e.getMessage());
+		}
+		return new ResponseEntity<prodResp>(resp, HttpStatus.ACCEPTED);
+		
+	}
 }

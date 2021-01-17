@@ -16,21 +16,13 @@ export class DetailsComponent implements OnInit {
   id:number;
   ngOnInit() {
 
-
-
     this._route.queryParams.subscribe(params => {
-      console.log(params["user"]);
       this.id = params["user"];
-      console.log(this.id);
     });
-
     this.api.getProductsById(this.id).subscribe(
       data=>{
-        console.log("Prodotto caricato correttamente");
-
-        this.product=data;
-
-      },
+    this.product=data.product;
+   },
       error=> console.log("Eccezione")
     )
 

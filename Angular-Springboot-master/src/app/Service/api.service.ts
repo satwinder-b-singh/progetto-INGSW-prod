@@ -14,7 +14,7 @@ export class ApiService {
   private LOGU_API = "http://localhost:8087/user/verify";
   private LOGA_API = "http://localhost:8087/admin/verify";
   private VISITOR_PRDLST_API = "http://localhost:8087/visitor/getProductsVisitor";
-  private PRDBY_ID = "http://localhost:8087/visitor/getProductsVisitor";
+  private PRDBY_ID = "http://localhost:8087/visitor/getProductsById";
   private PRDLST_API = "http://localhost:8087/user/getProducts";
   private ADD_CART_API = "http://localhost:8087/user/addToCart";
   private VW_CART_API = "http://localhost:8087/user/viewCart";
@@ -70,7 +70,8 @@ export class ApiService {
   getProductsById( id: number): Observable<any> {
 
 
-    return this.http.post<any>(this.PRDBY_ID, id);
+    //let body = { "id": id};
+    return this.http.post<any>(this.PRDBY_ID, JSON.parse(String(id)));
 
   }
   // Fetching all the products from the database
