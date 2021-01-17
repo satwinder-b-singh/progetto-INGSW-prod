@@ -5,12 +5,11 @@ import {Router} from "@angular/router";
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  selector: 'product-d',
+  templateUrl: './product-d.component.html',
+  styleUrls: ['./product-d.component.css']
 })
-export class DetailsComponent implements OnInit {
-
+export class ProductDComponent implements OnInit {
   constructor(private api: ApiService,private _route : ActivatedRoute) { }
   product: Product;
   id:number;
@@ -35,6 +34,4 @@ export class DetailsComponent implements OnInit {
     )
 
   }
-
-
 }
