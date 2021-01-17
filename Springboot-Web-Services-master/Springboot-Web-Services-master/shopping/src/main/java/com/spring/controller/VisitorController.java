@@ -77,8 +77,7 @@ public class VisitorController {
 	@PostMapping("/getProductsById")
 	public ResponseEntity<prodResp> getProductsById( @RequestBody    String id)//@Valid @RequestBody int id
 	{
-		System.out.println("Stampo l'id"+id);
-		prodResp resp = new prodResp();
+ 		prodResp resp = new prodResp();
 		Integer i = Integer.parseInt(id);
 		try {resp.setStatus(ResponseCode.SUCCESS_CODE);
 		resp.setMessage(ResponseCode.LIST_SUCCESS_MESSAGE);
