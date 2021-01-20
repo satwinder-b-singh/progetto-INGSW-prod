@@ -14,9 +14,11 @@ export class HomeComponent implements OnInit {
   products: Product[] = [];
   private auth_token: string;
   constructor(private api: ApiService, private router: Router,private _route : ActivatedRoute) { }
-
+  category: string="";
+  sesso: string= "";
+  size: string= "";
   ngOnInit() {
-
+    
       this.api.getProductsVisitor().subscribe(
       res => {
 
@@ -45,4 +47,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/visitor/detailProduct'],navigationExtras  );
 
     }
+  myClick(){
+    console.log(this.size + this.sesso + this.category)
+    this.api.getProductsFiltri(this.size,this.category,this.sesso).subscribe(
+      res => {
+
+        this.products = res.oblist;
+      
+      }
+    );
+  }
+
   }

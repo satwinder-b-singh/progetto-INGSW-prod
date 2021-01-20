@@ -1,9 +1,180 @@
 <app-navigation></app-navigation>
-<div class="container">
-  <br>
-  <div class="row">
-    <div class="col-3 align-left" *ngFor="let product of products">
-      <app-product [product]="product" (productAddToCart)="addToCart($event)"  (showProduct)="showProductPage(product.productid)">Loading...</app-product>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Molla - Bootstrap eCommerce Template</title>
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Molla - Bootstrap eCommerce Template">
+    <meta name="author" content="p-themes">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/icons/site.html">
+    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="src/assets/images/icons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Molla">
+    <meta name="application-name" content="Molla">
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link  type="text/css" rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link  type="text/css" rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+    <!-- Plugins CSS File -->
+    <link type="text/css"rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- Main CSS File -->
+    <link type="text/css"  rel="stylesheet" href="assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
+</head>
+<body>
+  
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        
+
+             <div class="products mb-3">
+                  <div class="row justify-content-center">
+                      <div class="col-6">
+                           <div class="product product-7 text-center" *ngFor="let product of products">
+                              <app-product [product]="product" (productAddToCart)="addToCart($event)"  (showProduct)="showProductPage(product.productid)">Loading...</app-product>
+                            </div><!-- End .product -->
+                        </div><!-- End .col-sm-6 -->
+
+                      
+                  </div><!-- End .row -->
+              </div><!-- End .products -->
+
+
+        <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
+                <span aria-hidden="true"><i class="icon-long-arrow-left"></i></span>Prev
+            </a>
+        </li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item-total">of 6</li>
+        <li class="page-item">
+            <a class="page-link page-link-next" href="#" aria-label="Next">
+                Next <span aria-hidden="true"><i class="icon-long-arrow-right"></i></span>
+            </a>
+        </li>
+    </ul>
+</nav>
+      </div><!-- End .col-lg-9 -->
+      <aside class="col-lg-3 order-lg-first">
+        <div class="sidebar sidebar-shop">
+          <div class="widget widget-clean">
+            <label>Filters:</label>
+            <a href="#" class="sidebar-filter-clear">Clean All</a>
+          </div><!-- End .widget widget-clean -->
+
+          <div class="widget widget-collapsible">
+      <h3 class="widget-title">
+        <a data-toggle="collapse" href="#widget-1" role="button" aria-expanded="true" aria-controls="widget-1">
+            Category
+        </a>
+    </h3><!-- End .widget-title -->
+
+    <div class="collapse show" id="widget-1">
+      <div class="widget-body">
+        <div class="filter-items filter-items-count">
+          <div>
+            <label>
+              <input type="radio" value="KIWI" [(ngModel)]="category" name="category" />Kiwi</label>
+            <div>
+            <label>
+              <input type="radio"  value="JACK" [(ngModel)]="category" name="category" />Jackfruit</label>
+            </div>
+            <label>
+              <input type="radio"  value="MANGO" [(ngModel)]="category" name="category" />Mango</label>
+          </div>
+          
+        </div><!-- End .filter-items -->
+      </div><!-- End .widget-body -->
+    </div><!-- End .collapse -->
+      </div><!-- End .widget -->
+
+      <div class="widget widget-collapsible">
+      <h3 class="widget-title">
+        <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true" aria-controls="widget-2">
+            Size
+        </a>
+    </h3><!-- End .widget-title -->
+
+    <div class="collapse show" id="widget-2">
+      <div class="widget-body">
+        <div class="filter-items">
+          <div>
+            <label>
+              <input type="radio" value="S" [(ngModel)]="size" name="size" />S</label>
+            <div>
+            <label>
+              <input type="radio"  value="M" [(ngModel)]="size" name="size" />M </label>
+            </div>
+            <label>
+              <input type="radio"  value="L" [(ngModel)]="size" name="size" />L</label>
+          </div>
+        </div><!-- End .filter-items -->
+      </div><!-- End .widget-body -->
+    </div><!-- End .collapse -->
+      </div><!-- End .widget -->
+
+      <div class="widget widget-collapsible">
+        <h3 class="widget-title">
+          <a data-toggle="collapse" href="#widget-2" role="button" aria-expanded="true" aria-controls="widget-2">
+              Sesso
+          </a>
+      </h3><!-- End .widget-title -->
+  
+      <div class="collapse show" id="widget-2">
+        <div class="widget-body">
+          <div class="filter-items">
+            <div>
+              <label>
+                <input type="radio" value="Femmina" [(ngModel)]="sesso" name="sesso" />Femmina</label>
+              <div>
+              <label>
+                <input type="radio"  value="Maschio" [(ngModel)]="sesso" name="sesso" />Maschio</label>
+              </div>
+            </div>
+          </div><!-- End .filter-items -->
+        </div><!-- End .widget-body -->
+      </div><!-- End .collapse -->
+        </div><!-- End .widget -->
+  
+     <div >
+          <h3 class="widget-title">
+             
+                <button (click)="myClick()"> APPLICA</button>
+          </h3><!-- End .widget-title -->
+
+      </div><!-- End .widget -->
+        </div><!-- End .sidebar sidebar-shop -->
+      </aside><!-- End .col-lg-3 -->
+    </div><!-- End .row -->
+  </div><!-- End .container -->
+</div><!-- End .page-content -->
+ <!-- Plugins JS File -->
+ <script src="assets/js/jquery.min.js"></script>
+ <script src="assets/js/bootstrap.bundle.min.js"></script>
+ <script src="assets/js/jquery.hoverIntent.min.js"></script>
+ <script src="assets/js/jquery.waypoints.min.js"></script>
+ <script src="assets/js/superfish.min.js"></script>
+ <script src="assets/js/owl.carousel.min.js"></script>
+ <script src="assets/js/bootstrap-input-spinner.js"></script>
+ <script src="assets/js/jquery.magnific-popup.min.js"></script>
+ <script src="assets/js/wNumb.js"></script>
+ <script src="assets/js/nouislider.min.js"></script>
+ <!-- Main JS File -->
+ <script src="assets/js/main.js"></script>
+</body>
+</html>
